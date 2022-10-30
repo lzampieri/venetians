@@ -13,10 +13,13 @@ require('./bootstrap');
 const ReactDOM = require( 'react-dom' );
 const { BrowserRouter } = require('react-router-dom');
 const { default: Example } = require('./components/Example');
+const { default: Layout } = require('./Layout');
 
 ReactDOM.render(
     <BrowserRouter basename={ process.env.MIX_REACT_BASE_PATH } >
-        <Example />
+        <Layout>
+            <Example />
+        </Layout>
     </BrowserRouter>,
     document.getElementById("root")
 );

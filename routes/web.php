@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StorageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,10 @@ Route::redirect('/','app');
 Route::get('/app/{path?}', function () {
     return view('app');
 })->where('path', '.*');
+
+// Get data
+Route::prefix('/get/')->group( function () {
+
+    Route::get('background', [ StorageController::class, 'getBackground' ])->name('getBackground');;
+    
+});
