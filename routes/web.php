@@ -3,6 +3,7 @@
 use App\Http\Controllers\DictumController;
 use App\Http\Controllers\StorageController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,8 @@ Route::redirect('/','app')->name('home');
 // React
 Route::get('/app/{path?}', function () {
     return view('app');
-})->where('path', '.*');
+})->where('path', '.*')
+  ->name('react_base');
 
 // Get data
 Route::prefix('get')->group( function () {

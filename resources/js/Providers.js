@@ -20,6 +20,8 @@ export default function Providers() {
         setData(allDicta);
     }, [])
 
+    let basename = new URL( route( 'react_base' ) );
+
     return (
         <ThemeProvider>
             <DataContext.Provider value={data}>
@@ -27,7 +29,7 @@ export default function Providers() {
                 {data == null ? (
                     <LoadingBackdrop open />
                 ) : (
-                    <BrowserRouter basename={process.env.MIX_REACT_BASE_PATH} >
+                    <BrowserRouter basename={ basename.pathname } >
                         <Layout>
                             <Routes>
 
