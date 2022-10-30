@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StorageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/','app');
+Route::redirect('/','app')->name('home');
 
 // React
 Route::get('/app/{path?}', function () {
@@ -22,8 +23,18 @@ Route::get('/app/{path?}', function () {
 })->where('path', '.*');
 
 // Get data
-Route::prefix('/get/')->group( function () {
+Route::prefix('get')->group( function () {
 
     Route::get('background', [ StorageController::class, 'getBackground' ])->name('getBackground');;
-    
+
+});
+
+// Authentication
+Route::prefix('auth')->group( function() {
+
+    Route::view( '', 'auth' )->name('auth');
+    Route::get('login', [ UserController::class, 'login' ] )->name('auth.login');
+    Route::get('callback', [ UserController::class, 'callback' ] );
+    Route::get('logout', [ UserController::class, 'logout' ] )->name('auth.logout');
+
 });
