@@ -26,6 +26,11 @@
                 <div class="bg-white rounded-full p-4">
                     Logged in as {{ Auth::user()->email }}
                 </div>
+                @if( Auth::user()->is_admin )
+                    <a class="bg-white hover:border-4 border-black rounded-xl p-4" href={{ route('backpack.dashboard') }}>
+                        Pannello di controllo
+                    </a>
+                @endif
                 <a class="bg-white hover:border-4 border-black rounded-xl p-4" href={{ route('auth.logout') }}>
                     Logout
                 </a>
