@@ -18,6 +18,7 @@ Route::group([
 ], function () { // custom admin routes
     Route::crud('user', 'UserCrudController');
 
-    Route::get( 'admin/edit-account-info', function () { return redirect()->route( 'auth' ); } )->name( 'backpack.account.info' );
-    Route::get( 'admin/logout', function () { return redirect()->route( 'auth.logout' ); } )->name( 'backpack.account.logout' );
+    Route::get( 'edit-account-info', function () { return redirect()->route( 'auth' ); } )->name( 'backpack.account.info' );
+    Route::get( 'logout', function () { return redirect()->route( 'auth.logout' ); } )->name( 'backpack.account.logout' );
+    Route::crud('dictum', 'DictumCrudController');
 }); // this should be the absolute last line of this file

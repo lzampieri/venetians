@@ -11,15 +11,9 @@ require('./bootstrap');
  * Load and activate the router
  */
 const ReactDOM = require( 'react-dom' );
-const { BrowserRouter } = require('react-router-dom');
-const { default: Example } = require('./components/Example');
-const { default: Layout } = require('./Layout');
+const { default: Providers } = require('./Providers');
 
 ReactDOM.render(
-    <BrowserRouter basename={ process.env.MIX_REACT_BASE_PATH } >
-        <Layout>
-            <Example />
-        </Layout>
-    </BrowserRouter>,
+    <Providers />,
     document.getElementById("root")
 );

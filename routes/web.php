@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DictumController;
 use App\Http\Controllers\StorageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::get('/app/{path?}', function () {
 Route::prefix('get')->group( function () {
 
     Route::get('background', [ StorageController::class, 'getBackground' ])->name('getBackground');;
+    Route::get('dicta', [ DictumController::class, 'all' ])->name('getAllDicta');;
 
 });
 
